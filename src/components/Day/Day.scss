@@ -1,0 +1,49 @@
+$mainColor: rgba(0,0,0,0.3);
+
+.day {
+    width: 100%;
+    display: flex;
+    border: solid 1px $mainColor;
+    &:not(:last-child) {
+        border-bottom: none;
+    }
+    
+    &__title,
+    &__partial {
+        padding: 1.125rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid $mainColor;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+    &__title {
+        width: 130px;
+    }
+    &__partial {
+        padding: 2rem 0.25rem;
+        width: calc((100% - 130px) / 18);
+        transition: box-shadow 0.1s linear;
+        cursor: pointer;
+
+        &:last-child {
+            border: none;
+        }
+
+        &-selected {
+            background-color: rgb(215, 224, 255);
+        }
+
+        &:hover {
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2) inset, -1px -1px 6px rgba(0, 0, 0, 0.2) inset;
+        }
+    }
+}
