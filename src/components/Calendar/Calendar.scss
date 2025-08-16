@@ -1,4 +1,59 @@
+@use "../../styles/variables.scss" as *;
+
 .calendar {
     width: 100%;
+    border: solid 1px $mainColor;
+    border-collapse: collapse;
     
+    &__title,
+    &__data {
+        padding: 1rem;
+        border: solid 1px $mainColor;
+        text-align: center;
+        vertical-align: middle;
+
+        p {
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    &__title-left {
+        max-width: 6.25rem;
+        background: 
+         linear-gradient(to top right,
+             rgba(0,0,0,0) 0%,
+             rgba(0,0,0,0) calc(50% - 0.8px),
+             $mainColor 50%,
+             rgba(0,0,0,0) calc(50% + 0.8px),
+             rgba(0,0,0,0) 100%);
+
+        p {
+            width: 100%;
+            &:first-child {
+                text-align: end;
+            }
+        }
+    }
+
+    &__data {
+        padding: 2rem 0.25rem;
+        width: calc((100% - 100px) / 5);
+        transition: box-shadow 0.1s linear;
+        cursor: pointer;
+
+        &-selected {
+            background-color: rgb(215, 224, 255);
+        }
+
+        &:hover {
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2) inset, -1px -1px 6px rgba(0, 0, 0, 0.2) inset;
+        }
+
+
+    }
 }
+
